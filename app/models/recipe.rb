@@ -1,6 +1,2 @@
-class Recipe < ApplicationController
-
-  def create
-
-  end
+class Recipe < ApplicationRecord
 end
