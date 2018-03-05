@@ -14,5 +14,5 @@
 <%= link_to 'Enviar uma receita', new_recipe_path %>
 
 <% @cuisines.each do |c| %>
-  <%= link_to c.name, xxx_path %>
+  <h1><%= link_to c.name, cuisine_path(c.id) %></h1>
 <% end %>
