@@ -1,3 +1,7 @@
+<h1>Cadastrar uma receita</h1>
+
+<%= render partial: 'shared/model_errors', locals: { model: @recipe } %>
+
 <%= form_for(@recipe) do |f| %>
   <div>
     <%= f.label :title, 'Título' %>
