@@ -1,10 +1,11 @@
 class RecipeTypesController < ApplicationController
 
   def new
-    @recipe_type = RecipeType.new(recipe_type_params)
+    @recipe_type = RecipeType.new
   end
 
   def create
+    recipe_type_params = params.require(:recipe_type).permit(:name)
     @recipe_type = RecipeType.new(recipe_type_params)
 
     if @recipe_type.save
@@ -21,10 +22,6 @@ class RecipeTypesController < ApplicationController
     if @recipe_type.recipes.empty?
       flash[:alert] = 'Nenhuma receita encontrada para este tipo de receitas'
     end
-  end
-
-  def recipe_type_params
-      params.require(:recipe_type).permit(:name)
   end
 
 end
