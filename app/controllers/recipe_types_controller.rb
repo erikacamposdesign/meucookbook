@@ -15,6 +15,14 @@ class RecipeTypesController < ApplicationController
     end
   end
 
+  def show
+    @recipe_type = RecipeType.find(params[:id])
+
+    if @recipe_type.recipes.empty?
+      flash[:alert] = 'Nenhuma receita encontrada para este tipo de receitas'
+    end
+  end
+
   def recipe_type_params
       params.require(:recipe_type).permit(:name)
   end
